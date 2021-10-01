@@ -31,7 +31,7 @@
 
 -->
 
-<module name="TreeWalker">
+<module name="Checker">
     <!--
         If you set the basedir property below, then all reported file
         names will be relative to the specified directory. See
@@ -96,7 +96,7 @@
     <!--   <property name="fileExtensions" value="java"/> -->
     <!-- </module> -->
 
-    <module name="Checker">
+    <module name="TreeWalker">
 
         <!-- Checks for Javadoc comments.                     -->
         <!-- See https://checkstyle.org/config_javadoc.html -->
