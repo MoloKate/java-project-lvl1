@@ -1,15 +1,15 @@
-package even;
+package main.java.hexlet.code;
 import java.util.Scanner;
-import cli.Cli;
+import main.java.hexlet.code.Cli;
 import java.util.Random;
 
 public class Even {
     public static void game() {
         Cli.welcomeName();
 
-        int i = 0;
+        int i;
         String answerEven = "";
-        boolean evenOrNot = false;
+        boolean evenOrNot;
         Cli nameUser = new Cli();
         String nameEven = nameUser.nameGlobal;
 
@@ -19,17 +19,15 @@ public class Even {
         System.out.print("Answer 'yes' if number even otherwise answer 'no'.");
         for (i = 0; i < 3; i++){
             evenOrNot = false;
-            System.out.println(evenOrNot);
             Random random = new Random();
             int randomNumber = random.nextInt(1000);
             if (randomNumber % 2 == 0) {
                 evenOrNot = true;
-                System.out.println("yes");
             }
             System.out.println("Question: " + randomNumber);
             answerEven = in.nextLine();
             System.out.println("Your answer: " + answerEven);
-            if ((evenOrNot == true && answerEven.equals("yes")) || (evenOrNot == false && answerEven.equals("no"))) {
+            if ((evenOrNot && answerEven.equals("yes")) || (!evenOrNot && answerEven.equals("no"))) {
                 System.out.println("Correct!");
             }
             else {break;}

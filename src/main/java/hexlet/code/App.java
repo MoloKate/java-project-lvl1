@@ -1,8 +1,8 @@
 package hexlet.code;
 import java.util.Scanner;
 
-import even.Even;
-import cli.Cli;
+import main.java.hexlet.code.Even;
+import main.java.hexlet.code.Cli;
 
 public class App {
     public static void main(String[] args) {
