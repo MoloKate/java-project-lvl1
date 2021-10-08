@@ -1,4 +1,5 @@
 package main.java.hexlet.code;
+
 import java.util.Scanner;
 import main.java.hexlet.code.Cli;
 import java.util.Random;
@@ -20,7 +21,7 @@ public class Even {
         for (i = 0; i < 3; i++){
             evenOrNot = false;
             Random random = new Random();
-            int randomNumber = random.nextInt(1000);
+            int randomNumber = random.nextInt(100);
             if (randomNumber % 2 == 0) {
                 evenOrNot = true;
             }
