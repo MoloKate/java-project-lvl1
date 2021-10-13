@@ -1,7 +1,5 @@
 package main.java.hexlet.code;
 
-import java.sql.Array;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,23 +11,24 @@ public class Progression {
         int i;
         int progNumber = 0;
         int answerProg = 0;
+        int numberOfAnswer = 3;
 
 
         Cli nameUser = new Cli();
         String nameProg = nameUser.nameGlobal;
-
+        Random random = new Random();
 
 
         Scanner in = new Scanner(System.in);
         System.out.print("What number is missing in the progression?");
-        for (i = 0; i < 3; i++){
-            Random random = new Random();
+        for (i = 0; i < numberOfAnswer; i++){
+
             int randomLengthProg = 5 + random.nextInt(5);
-            int[] Progress = new int[randomLengthProg];
+            int[] progress = new int[randomLengthProg];
             int step = 1 + random.nextInt(9);
-            Progress[0] = random.nextInt(10);
-            for (int j = 1; j < randomLengthProg; j++) {
-                Progress[j] = Progress[0] + step * j;
+            progress[0] = random.nextInt(10);
+            for (int j = 1; j < progress.length; j++) {
+                progress[j] = progress[0] + step * j;
             }
 
             int replacedItemNumber = random.nextInt(randomLengthProg - 1);
@@ -38,19 +37,19 @@ public class Progression {
                 if (k == replacedItemNumber) {
                     replaceElementProgress += ".." + " ";
                 } else {
-                replaceElementProgress += Integer.toString(Progress[k]) + " ";
+                replaceElementProgress += progress[k] + " ";
                 }
             }
             System.out.println(replaceElementProgress);
             answerProg = Integer.parseInt(in.nextLine());
-            progNumber = Progress[replacedItemNumber];
+            progNumber = progress[replacedItemNumber];
 
-            if (Progress[replacedItemNumber] == answerProg) {
+            if (progress[replacedItemNumber] == answerProg) {
                 System.out.println("Correct!");
             }
             else {break;}
         }
-        if (i == 3) {
+        if (i == numberOfAnswer) {
             System.out.println("Congratulations, " + nameProg + "!");
         } else {
             System.out.println ("'" + answerProg + "'" + "is wrong answer ;(. " +

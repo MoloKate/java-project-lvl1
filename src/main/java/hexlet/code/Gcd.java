@@ -10,6 +10,7 @@ public class Gcd {
         int i;
         int gcdNumber = 0;
         int answerGcd = 0;
+        int numberOfAnswer = 3;
 
         Cli nameUser = new Cli();
         String nameGcd = nameUser.nameGlobal;
@@ -18,7 +19,7 @@ public class Gcd {
 
         Scanner in = new Scanner(System.in);
         System.out.print("Find the greatest common divisor of given numbers.");
-        for (i = 0; i < 3; i++){
+        for (i = 0; i < numberOfAnswer; i++){
             Random random = new Random();
             int randomNumberOne = random.nextInt(100);
             int randomNumberTwo = random.nextInt(100);
@@ -42,7 +43,7 @@ public class Gcd {
             }
             else {break;}
         }
-        if (i == 3) {
+        if (i == numberOfAnswer) {
             System.out.println("Congratulations, " + nameGcd + "!");
         } else {
             System.out.println ("'" + answerGcd + "'" + "is wrong answer ;(. " +

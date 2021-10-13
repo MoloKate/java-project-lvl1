@@ -14,12 +14,14 @@ public class Calc {
         String sign = "+-*";
         int answerCalc = 0;
         int resultCalc = 0;
+        int numberOfAnswer = 3;
+
         Cli nameUser = new Cli();
         String nameCalc = nameUser.nameGlobal;
 
         Scanner in = new Scanner(System.in);
         System.out.print("What is the result of the expression?");
-        for (i = 0; i < 3; i++){
+        for (i = 0; i < numberOfAnswer; i++){
             Random random = new Random();
             int randomNumber = -25 + random.nextInt((100 - 25 + 1));
             int randomSecondNumber = random.nextInt(100);
@@ -45,7 +47,7 @@ public class Calc {
             }
             else {break;}
         }
-        if (i == 3) {
+        if (i == numberOfAnswer) {
             System.out.println("Congratulations, " + nameCalc + "!");
         }
         else {
