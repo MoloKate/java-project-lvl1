@@ -14,3 +14,7 @@ lint:
 buildp:
 	./gradlew clean build
 
+
+run:
+	./gradlew run
+

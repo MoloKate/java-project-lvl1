@@ -6,27 +6,32 @@ import java.util.Scanner;
 
 public class Progression {
     public static void game() {
-        Cli.welcomeName();
+
 
         int i;
         int progNumber = 0;
         int answerProg = 0;
-        int numberOfAnswer = 3;
+        final int numberOfAnswer = 3;
+        final int bound = 5;
+        final int gapForRandom = 5;
+        final int gapForRandomStep = 1;
+        final int boundStep = 9;
+        final int boundForProgressZero = 9;
 
 
         Cli nameUser = new Cli();
-        String nameProg = nameUser.nameGlobal;
+        String nameProg = nameUser.getName();
         Random random = new Random();
 
 
         Scanner in = new Scanner(System.in);
-        System.out.print("What number is missing in the progression?");
-        for (i = 0; i < numberOfAnswer; i++){
+        System.out.print("What number is missing in the progression?\n");
+        for (i = 0; i < numberOfAnswer; i++) {
 
-            int randomLengthProg = 5 + random.nextInt(5);
+            int randomLengthProg = gapForRandom + random.nextInt(bound);
             int[] progress = new int[randomLengthProg];
-            int step = 1 + random.nextInt(9);
-            progress[0] = random.nextInt(10);
+            int step = gapForRandomStep + random.nextInt(boundStep);
+            progress[0] = random.nextInt(boundForProgressZero);
             for (int j = 1; j < progress.length; j++) {
                 progress[j] = progress[0] + step * j;
             }
@@ -37,7 +42,7 @@ public class Progression {
                 if (k == replacedItemNumber) {
                     replaceElementProgress += ".." + " ";
                 } else {
-                replaceElementProgress += progress[k] + " ";
+                    replaceElementProgress += progress[k] + " ";
                 }
             }
             System.out.println(replaceElementProgress);
@@ -46,14 +51,15 @@ public class Progression {
 
             if (progress[replacedItemNumber] == answerProg) {
                 System.out.println("Correct!");
+            } else {
+                break;
             }
-            else {break;}
         }
         if (i == numberOfAnswer) {
             System.out.println("Congratulations, " + nameProg + "!");
         } else {
-            System.out.println ("'" + answerProg + "'" + "is wrong answer ;(. " +
-                   "Correct answer was " + "'" + progNumber + "'.\n  Let's try again, " + nameProg + "!");
+            System.out.println("'" + answerProg + "'" + "is wrong answer ;(. "
+                    + "Correct answer was " + "'" + progNumber + "'.\n  Let's try again, " + nameProg + "!");
 
         }
 
