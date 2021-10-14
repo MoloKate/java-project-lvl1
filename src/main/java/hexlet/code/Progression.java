@@ -45,7 +45,7 @@ public class Progression {
                     replaceElementProgress += progress[k] + " ";
                 }
             }
-            System.out.println(replaceElementProgress);
+            System.out.println("Question: " + replaceElementProgress);
             answerProg = Integer.parseInt(in.nextLine());
             progNumber = progress[replacedItemNumber];
 
