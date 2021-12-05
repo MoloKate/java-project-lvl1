@@ -1,4 +1,7 @@
-package main.java.hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -17,7 +20,7 @@ public class Calc {
         final int boundForFirstNumber = 76;
         final int gapForFirstNumber = -25;
 
-        String nameCalc = Cli.getName();
+        String nameUser = Cli.getName();
 
         Scanner in = new Scanner(System.in);
         System.out.print("What is the result of the expression?\n");
@@ -43,16 +46,15 @@ public class Calc {
             answerCalc = Integer.parseInt(in.nextLine());
             System.out.println("Your answer: " + answerCalc);
             if (answerCalc == resultCalc) {
-                System.out.println("Correct!");
+                Engine.printTextIfUserCorrect();
             } else {
                 break;
             }
         }
         if (i == numberOfAnswer) {
-            System.out.println("Congratulations, " + nameCalc + "!");
+            Engine.printCongratulationsToUser(nameUser);
         } else {
-            System.out.println("'" + answerCalc + "'" + "is wrong answer ;(. "
-                    + "Correct answer was " + "'" + resultCalc + "'.\n  Let's try again, " + nameCalc + "!");
+            Engine.printFalseAnswerCalc(answerCalc, resultCalc, nameUser);
         }
     }
 }

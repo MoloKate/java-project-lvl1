@@ -1,8 +1,10 @@
-package main.java.hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
 
+import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 public class Progression {
     public static void game() {
@@ -19,7 +21,7 @@ public class Progression {
         final int boundForProgressZero = 9;
 
 
-        String nameProg = Cli.getName();
+        String nameUser = Cli.getName();
         Random random = new Random();
 
 
@@ -49,17 +51,15 @@ public class Progression {
             progNumber = progress[replacedItemNumber];
 
             if (progress[replacedItemNumber] == answerProg) {
-                System.out.println("Correct!");
+                Engine.printTextIfUserCorrect();
             } else {
                 break;
             }
         }
         if (i == numberOfAnswer) {
-            System.out.println("Congratulations, " + nameProg + "!");
+            Engine.printCongratulationsToUser(nameUser);
         } else {
-            System.out.println("'" + answerProg + "'" + "is wrong answer ;(. "
-                    + "Correct answer was " + "'" + progNumber + "'.\n  Let's try again, " + nameProg + "!");
-
+            Engine.printFalseAnswerProgression(answerProg, progNumber, nameUser);
         }
 
     }

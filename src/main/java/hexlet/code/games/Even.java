@@ -1,8 +1,9 @@
-package main.java.hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 import java.util.Scanner;
-
-
 import java.util.Random;
 
 public class Even {
@@ -14,7 +15,7 @@ public class Even {
         final int numberOfAnswer = 3;
         final int bound = 100;
 
-        String nameEven = Cli.getName();
+        String nameUser = Cli.getName();
 
 
         Scanner in = new Scanner(System.in);
@@ -30,19 +31,15 @@ public class Even {
             answerEven = in.nextLine();
             System.out.println("Your answer: " + answerEven);
             if ((evenOrNot && answerEven.equals("yes")) || (!evenOrNot && answerEven.equals("no"))) {
-                System.out.println("Correct!");
+                Engine.printTextIfUserCorrect();
             } else {
                 break;
             }
         }
         if (i == numberOfAnswer) {
-            System.out.println("Congratulations, " + nameEven + "!");
-        } else if (evenOrNot) {
-            System.out.println("'" + answerEven + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'yes'.\n  Let's try again, " + nameEven + "!");
+            Engine.printCongratulationsToUser(nameUser);
         } else {
-            System.out.println("'" + answerEven + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'no'.\n  Let's try again, " + nameEven + "!");
+            Engine.printFalseAnswerEven(evenOrNot, answerEven, nameUser);
         }
     }
 }

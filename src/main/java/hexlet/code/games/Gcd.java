@@ -1,4 +1,7 @@
-package main.java.hexlet.code;
+package hexlet.code.games;
+
+import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -12,7 +15,7 @@ public class Gcd {
         final int numberOfAnswer = 3;
         final int bound = 100;
 
-        String nameGcd = Cli.getName();
+        String nameUser = Cli.getName();
 
 
 
@@ -38,16 +41,15 @@ public class Gcd {
                 gcdNumber = randomNumberOne;
             }
             if (answerGcd == gcdNumber) {
-                System.out.println("Correct!");
+                Engine.printTextIfUserCorrect();
             } else {
                 break;
             }
         }
         if (i == numberOfAnswer) {
-            System.out.println("Congratulations, " + nameGcd + "!");
+            Engine.printCongratulationsToUser(nameUser);
         } else {
-            System.out.println("'" + answerGcd + "'" + "is wrong answer ;(. "
-                    + "Correct answer was " + "'" + gcdNumber + "'.\n  Let's try again, " + nameGcd + "!");
+            Engine.printFalseAnswerGcd(answerGcd, gcdNumber, nameUser);
         }
     }
 }

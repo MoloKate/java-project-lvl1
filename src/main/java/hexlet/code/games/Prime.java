@@ -1,9 +1,11 @@
-package main.java.hexlet.code;
+package hexlet.code.games;
 
 import java.math.BigInteger;
 import java.util.Random;
 import java.util.Scanner;
 
+import hexlet.code.Cli;
+import hexlet.code.Engine;
 
 public class Prime {
     public static void game() {
@@ -16,7 +18,7 @@ public class Prime {
         final int bound = 100;
 
 
-        String namePrime = Cli.getName();
+        String nameUser = Cli.getName();
         Random random = new Random();
 
 
@@ -34,19 +36,15 @@ public class Prime {
             System.out.println("Your answer: " + answerPrime);
             if ((probablePrime && answerPrime.equals("yes")) || (!probablePrime && answerPrime.equals("no"))
                     || randomNumber == 0) {
-                System.out.println("Correct!");
+                Engine.printTextIfUserCorrect();
             } else {
                 break;
             }
         }
         if (i == numberOfAnswer) {
-            System.out.println("Congratulations, " + namePrime + "!");
-        } else if (probablePrime) {
-            System.out.println("'" + answerPrime + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'yes'.\n  Let's try again, " + namePrime + "!");
+            Engine.printCongratulationsToUser(nameUser);
         } else {
-            System.out.println("'" + answerPrime + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'no'.\n  Let's try again, " + namePrime + "!");
+            Engine.printFalseAnswerPrime(probablePrime, answerPrime, nameUser);
         }
     }
 }

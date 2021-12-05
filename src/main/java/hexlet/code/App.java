@@ -2,12 +2,12 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import main.java.hexlet.code.Even;
-import main.java.hexlet.code.Cli;
-import main.java.hexlet.code.Calc;
-import main.java.hexlet.code.Gcd;
-import main.java.hexlet.code.Progression;
-import main.java.hexlet.code.Prime;
+import hexlet.code.games.Even;
+import hexlet.code.Cli;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Gcd;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     public static void main(String[] args) {
@@ -26,7 +26,7 @@ public class App {
 
         switch (gameNumber) {
             case "1":
-                nameUser.getName();
+                Cli.getName();
                 break;
             case "2":
                 Even.game();
