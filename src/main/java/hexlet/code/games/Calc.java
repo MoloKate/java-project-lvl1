@@ -54,7 +54,7 @@ public class Calc {
         if (i == numberOfAnswer) {
             Engine.printCongratulationsToUser(nameUser);
         } else {
-            Engine.printFalseAnswerCalc(answerCalc, resultCalc, nameUser);
+            Engine.printFalseAnswer(answerCalc, resultCalc, nameUser);
         }
     }
 }

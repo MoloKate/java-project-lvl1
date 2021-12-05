@@ -59,7 +59,7 @@ public class Progression {
         if (i == numberOfAnswer) {
             Engine.printCongratulationsToUser(nameUser);
         } else {
-            Engine.printFalseAnswerProgression(answerProg, progNumber, nameUser);
+            Engine.printFalseAnswer(answerProg, progNumber, nameUser);
         }
 
     }

@@ -49,7 +49,7 @@ public class Gcd {
         if (i == numberOfAnswer) {
             Engine.printCongratulationsToUser(nameUser);
         } else {
-            Engine.printFalseAnswerGcd(answerGcd, gcdNumber, nameUser);
+            Engine.printFalseAnswer(answerGcd, gcdNumber, nameUser);
         }
     }
 }

@@ -44,7 +44,7 @@ public class Prime {
         if (i == numberOfAnswer) {
             Engine.printCongratulationsToUser(nameUser);
         } else {
-            Engine.printFalseAnswerPrime(probablePrime, answerPrime, nameUser);
+            Engine.printFalseAnswerEvenOrPrime(probablePrime, answerPrime, nameUser);
         }
     }
 }

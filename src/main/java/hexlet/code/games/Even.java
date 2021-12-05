@@ -39,7 +39,7 @@ public class Even {
         if (i == numberOfAnswer) {
             Engine.printCongratulationsToUser(nameUser);
         } else {
-            Engine.printFalseAnswerEven(evenOrNot, answerEven, nameUser);
+            Engine.printFalseAnswerEvenOrPrime(evenOrNot, answerEven, nameUser);
         }
     }
 }
