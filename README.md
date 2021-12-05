@@ -7,6 +7,6 @@ Working program example:
 Greet -[![asciicast](https://asciinema.org/a/i6zDVElmnQUubysdOeQuhJkRr.svg)](https://asciinema.org/a/i6zDVElmnQUubysdOeQuhJkRr)
 Even - [![asciicast](https://asciinema.org/a/LSZKziflpjbYWt84ESMo2F1Po.svg)](https://asciinema.org/a/LSZKziflpjbYWt84ESMo2F1Po)
 Calc - [![asciicast](https://asciinema.org/a/AzpUzPzvLjtcFf42LoXAU7MHl.svg)](https://asciinema.org/a/AzpUzPzvLjtcFf42LoXAU7MHl)
-GCD - https://asciinema.org/a/YIyE9l7m3wlY10ZFHGEcMiuWz
-Progression - https://asciinema.org/a/mSvmTuVDRkNkbWZm7kuuypfNX
-Prime - https://asciinema.org/a/FG6arPtonqLh1CjJZC24hvTrS
+GCD - [![asciicast](https://asciinema.org/a/br8AaPeYqMEaGiTf60S4q6kxr.svg)](https://asciinema.org/a/br8AaPeYqMEaGiTf60S4q6kxr)
+Progression - [![asciicast](https://asciinema.org/a/THwiH6tyH0CFvksandijObzmm.svg)](https://asciinema.org/a/THwiH6tyH0CFvksandijObzmm)
+Prime - [![asciicast](https://asciinema.org/a/5QTQuBUegFTSCuC26YyZTliKP.svg)](https://asciinema.org/a/5QTQuBUegFTSCuC26YyZTliKP)
