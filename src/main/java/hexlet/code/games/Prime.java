@@ -33,7 +33,8 @@ public class Prime {
             System.out.println("Question: " + randomNumber);
             answerPrime = in.nextLine();
             System.out.println("Your answer: " + answerPrime);
-            if ((probablePrime && answerPrime.equals("yes")) || (!probablePrime && answerPrime.equals("no"))) {
+            if ((probablePrime && answerPrime.equals("yes")) || (!probablePrime && answerPrime.equals("no"))
+                    || randomNumber == 0) {
                 System.out.println("Correct!");
             } else {
                 break;

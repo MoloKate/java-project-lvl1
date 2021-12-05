@@ -1,2 +1,3 @@
-package main.java.hexlet.code;public class Engine {
+package main.java.hexlet.code;
+public class Engine {
 }
