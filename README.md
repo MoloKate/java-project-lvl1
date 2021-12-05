@@ -4,7 +4,7 @@
 ![example workflow](https://github.com/MoloKate/java-project-lvl1/actions/workflows/main.yml/badge.svg)
 
 Working program example:
-Greet - https://asciinema.org/a/hNuVPVBF7glc1ymS2Oi3wzqOl
+Greet - <script id="asciicast-sSsos2TrdIUyIZggnFWvIgdFb" src="https://asciinema.org/a/sSsos2TrdIUyIZggnFWvIgdFb.js" async></script>
 Even - https://asciinema.org/a/CIzOpmFRE8PMuv6CjsngTmWAI
 Calc - https://asciinema.org/a/R5lRGop2dnn158so4T3p2ESIg
 GCD - https://asciinema.org/a/YIyE9l7m3wlY10ZFHGEcMiuWz
