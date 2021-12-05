@@ -17,8 +17,7 @@ public class Calc {
         final int boundForFirstNumber = 76;
         final int gapForFirstNumber = -25;
 
-        Cli nameUser = new Cli();
-        String nameCalc = nameUser.getName();
+        String nameCalc = Cli.getName();
 
         Scanner in = new Scanner(System.in);
         System.out.print("What is the result of the expression?\n");

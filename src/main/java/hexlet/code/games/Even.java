@@ -14,8 +14,7 @@ public class Even {
         final int numberOfAnswer = 3;
         final int bound = 100;
 
-        Cli nameUser = new Cli();
-        String nameEven = nameUser.getName();
+        String nameEven = Cli.getName();
 
 
         Scanner in = new Scanner(System.in);

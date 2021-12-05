@@ -12,8 +12,7 @@ public class Gcd {
         final int numberOfAnswer = 3;
         final int bound = 100;
 
-        Cli nameUser = new Cli();
-        String nameGcd = nameUser.getName();
+        String nameGcd = Cli.getName();
 
 
 

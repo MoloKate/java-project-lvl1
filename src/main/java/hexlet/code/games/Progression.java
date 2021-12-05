@@ -19,8 +19,7 @@ public class Progression {
         final int boundForProgressZero = 9;
 
 
-        Cli nameUser = new Cli();
-        String nameProg = nameUser.getName();
+        String nameProg = Cli.getName();
         Random random = new Random();
 
 

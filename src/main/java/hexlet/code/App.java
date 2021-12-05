@@ -11,12 +11,6 @@ import main.java.hexlet.code.Prime;
 
 public class App {
     public static void main(String[] args) {
-        final int gameOne = 1;
-        final int gameTwo = 2;
-        final int gameThree = 3;
-        final int gameFour = 4;
-        final int gameFive = 5;
-        final int gameSix = 6;
 
         Scanner in = new Scanner(System.in);
         System.out.print("Please enter the game number and press Enter.\n"
@@ -27,22 +21,28 @@ public class App {
                 + "5 - Progression\n"
                 + "6 - Prime\n"
                 + "0 - Exit");
-        int gameNumber = Integer.parseInt(in.nextLine());
+        String gameNumber = in.nextLine();
         System.out.println("Your choice: " + gameNumber + " ");
 
-        if (gameNumber == gameOne) {
-            Cli nameUser = new Cli();
-            nameUser.getName();
-        } else if (gameNumber == gameTwo) {
-            Even.game();
-        } else if (gameNumber == gameThree) {
-            Calc.game();
-        } else if (gameNumber == gameFour) {
-            Gcd.game();
-        } else if (gameNumber == gameFive) {
-            Progression.game();
-        } else if (gameNumber == gameSix) {
-            Prime.game();
+        switch (gameNumber) {
+            case "1":
+                nameUser.getName();
+                break;
+            case "2":
+                Even.game();
+                break;
+            case "3":
+                Calc.game();
+                break;
+            case "4":
+                Gcd.game();
+                break;
+            case "5":
+                Progression.game();
+                break;
+            case "6":
+                Prime.game();
+                break;
         }
     }
 }

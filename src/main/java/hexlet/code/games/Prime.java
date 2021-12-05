@@ -16,8 +16,7 @@ public class Prime {
         final int bound = 100;
 
 
-        Cli nameUser = new Cli();
-        String namePrime = nameUser.getName();
+        String namePrime = Cli.getName();
         Random random = new Random();
 
 
