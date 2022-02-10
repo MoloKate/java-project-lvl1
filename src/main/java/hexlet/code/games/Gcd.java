@@ -20,7 +20,7 @@ public class Gcd {
             int randomNumberOne = random.nextInt(valueBound);
             int randomNumberTwo = random.nextInt(valueBound);
 
-            questions[i] = "Question: " + randomNumberOne + " " + randomNumberTwo;
+            questions[i] = "Question: " + Integer.toString(randomNumberOne) + " " + Integer.toString(randomNumberTwo);
             if (randomNumberOne == 0) {
                 gcdNumber = randomNumberTwo;
             }
