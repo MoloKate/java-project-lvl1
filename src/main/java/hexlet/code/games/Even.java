@@ -1,45 +1,26 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
 import java.util.Random;
 
 public class Even {
     public static void game() {
+        final int numberOfQuestions = 3;
+        String[] questions = new String[numberOfQuestions];
+        int[] rightAnswers = new int[numberOfQuestions];
 
-        int i;
-        String answerEven = "";
-        boolean evenOrNot = false;
-        final int numberOfAnswer = 3;
-        final int bound = 100;
+        final int valueBound = 100;
 
-        String nameUser = Cli.getName();
+        Random random = new Random();
 
-
-        Scanner in = new Scanner(System.in);
-        System.out.print("Answer 'yes' if number even otherwise answer 'no'.\n");
-        for (i = 0; i < numberOfAnswer; i++) {
-            evenOrNot = false;
-            Random random = new Random();
-            int randomNumber = random.nextInt(bound);
-            if (randomNumber % 2 == 0) {
-                evenOrNot = true;
-            }
-            System.out.println("Question: " + randomNumber);
-            answerEven = in.nextLine();
-            System.out.println("Your answer: " + answerEven);
-            if ((evenOrNot && answerEven.equals("yes")) || (!evenOrNot && answerEven.equals("no"))) {
-                Engine.printTextIfUserCorrect();
-            } else {
-                break;
-            }
+        for (int i = 0; i < numberOfQuestions; i++)  {
+            int value = random.nextInt(valueBound);
+            questions[i] = "Question: " + value;
+            rightAnswers[i] = (value % 2 == 0) ? 1 : 0;
         }
-        if (i == numberOfAnswer) {
-            Engine.printCongratulationsToUser(nameUser);
-        } else {
-            Engine.printFalseAnswerEvenOrPrime(evenOrNot, answerEven, nameUser);
-        }
+        Engine.gameProcess("Answer 'yes' if number even otherwise answer 'no'.\n",
+                questions, rightAnswers, "yesno");
     }
+
 }

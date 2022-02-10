@@ -1,27 +1,51 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class Engine {
+    public static void gameProcess(String description, String[] questions, int[] rightAnswers, String answerType) {
+        String nameUser = Cli.getName();
 
-    public static void printTextIfUserCorrect() {
-        System.out.println("Correct!");
-    }
+        Scanner in = new Scanner(System.in);
 
-    public static void printCongratulationsToUser(String nameUser) {
-        System.out.println("Congratulations, " + nameUser + "!");
-    }
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+            int answerInt = 0;
+            String answer = in.nextLine();
+            switch (answerType) {
+                case "yesno":
+                    if (answer.equals("yes")) {
+                        answerInt = 1;
+                    } else {
+                        answerInt = 0;
+                    }
+                    break;
+                default:
+                    answerInt = Integer.parseInt(answer);
+                    break;
+            }
+            System.out.println("Your answer: " + answer);
+            if (answerInt == rightAnswers[i]) {
+                System.out.println("Correct!");
+            } else {
+                switch (answerType) {
+                    case "yesno":
+                        System.out.println("'" + answer + "'" + "is wrong answer ;(. "
+                            + "Correct answer was "
+                            + ((rightAnswers[i] == 1) ? "yes" : "no")
+                            + ".\n  Let's try again, " + nameUser + "!");
+                        break;
+                    default:
+                        System.out.println("'" + answer + "'" + "is wrong answer ;(. "
+                                + "Correct answer was " + "'"
+                                + rightAnswers[i] + "'.\n  Let's try again, " + nameUser + "!");
+                        break;
+                }
 
-    public static void printFalseAnswer(int answer, int result, String nameUser) {
-        System.out.println("'" + answer + "'" + "is wrong answer ;(. "
-                + "Correct answer was " + "'" + result + "'.\n  Let's try again, " + nameUser + "!");
-    }
-
-    public static void printFalseAnswerEvenOrPrime(boolean flag, String answer, String nameUser) {
-        if (flag) {
-            System.out.println("'" + answer + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'yes'.\n  Let's try again, " + nameUser + "!");
-        } else {
-            System.out.println("'" + answer + "'" + "is wrong answer ;(. "
-                    + "Correct answer was 'no'.\n  Let's try again, " + nameUser + "!");
+                return;
+            }
         }
+
+        System.out.println("Congratulations, " + nameUser + "!");
     }
 }

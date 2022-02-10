@@ -1,34 +1,26 @@
 package hexlet.code.games;
-
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Gcd {
     public static void game() {
-
-        int i;
-        int gcdNumber = 0;
-        int answerGcd = 0;
-        final int numberOfAnswer = 3;
-        final int bound = 100;
-
-        String nameUser = Cli.getName();
+        final int numberOfQuestions = 3;
 
 
+        String[] questions = new String[numberOfQuestions];
+        int[] rightAnswers = new int[numberOfQuestions];
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Find the greatest common divisor of given numbers.\n");
-        for (i = 0; i < numberOfAnswer; i++) {
-            Random random = new Random();
-            int randomNumberOne = random.nextInt(bound);
-            int randomNumberTwo = random.nextInt(bound);
+        final int valueBound = 100;
 
-            System.out.println("Question: " + randomNumberOne + " " + randomNumberTwo);
-            answerGcd = Integer.parseInt(in.nextLine());
-            System.out.println("Your answer: " + answerGcd);
+        Random random = new Random();
+
+        for (int i = 0; i < numberOfQuestions; i++)  {
+            int gcdNumber = 0;
+            int randomNumberOne = random.nextInt(valueBound);
+            int randomNumberTwo = random.nextInt(valueBound);
+
+            questions[i] = "Question: " + randomNumberOne + " " + randomNumberTwo;
             if (randomNumberOne == 0) {
                 gcdNumber = randomNumberTwo;
             }
@@ -40,16 +32,9 @@ public class Gcd {
                 }
                 gcdNumber = randomNumberOne;
             }
-            if (answerGcd == gcdNumber) {
-                Engine.printTextIfUserCorrect();
-            } else {
-                break;
-            }
+            rightAnswers[i] = gcdNumber;
         }
-        if (i == numberOfAnswer) {
-            Engine.printCongratulationsToUser(nameUser);
-        } else {
-            Engine.printFalseAnswer(answerGcd, gcdNumber, nameUser);
-        }
+        Engine.gameProcess("Find the greatest common divisor of given numbers.\n",
+                questions, rightAnswers, "number");
     }
 }

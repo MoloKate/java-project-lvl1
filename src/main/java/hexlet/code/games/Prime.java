@@ -2,49 +2,26 @@ package hexlet.code.games;
 
 import java.math.BigInteger;
 import java.util.Random;
-import java.util.Scanner;
-
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Prime {
     public static void game() {
+        final int numberOfQuestions = 3;
+        String[] questions = new String[numberOfQuestions];
+        int[] rightAnswers = new int[numberOfQuestions];
 
-        int i;
-        boolean probablePrime = false;
-        int progNumber = 0;
-        String answerPrime = "";
-        final int numberOfAnswer = 3;
-        final int bound = 100;
+        final int valueBound = 100;
 
-
-        String nameUser = Cli.getName();
         Random random = new Random();
 
+        for (int i = 0; i < numberOfQuestions; i++) {
+            int value = random.nextInt(valueBound);
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n");
-        for (i = 0; i < numberOfAnswer; i++) {
-            probablePrime = false;
-            int randomNumber = random.nextInt(bound);
-
-            BigInteger bigInteger = BigInteger.valueOf(randomNumber);
-            probablePrime = bigInteger.isProbablePrime((int) Math.log(randomNumber));
-
-            System.out.println("Question: " + randomNumber);
-            answerPrime = in.nextLine();
-            System.out.println("Your answer: " + answerPrime);
-            if ((probablePrime && answerPrime.equals("yes")) || (!probablePrime && answerPrime.equals("no"))
-                    || randomNumber == 0) {
-                Engine.printTextIfUserCorrect();
-            } else {
-                break;
-            }
+            BigInteger bigInteger = BigInteger.valueOf(value);
+            questions[i] = "Question: " + value;
+            rightAnswers[i] = (bigInteger.isProbablePrime((int) Math.log(value))) ? 1 : 0;
         }
-        if (i == numberOfAnswer) {
-            Engine.printCongratulationsToUser(nameUser);
-        } else {
-            Engine.printFalseAnswerEvenOrPrime(probablePrime, answerPrime, nameUser);
-        }
+        Engine.gameProcess("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n",
+                questions, rightAnswers, "yesno");
     }
 }

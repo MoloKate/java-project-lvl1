@@ -1,33 +1,23 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
 public class Progression {
     public static void game() {
+        final int numberOfQuestions = 3;
+        String[] questions = new String[numberOfQuestions];
+        int[] rightAnswers = new int[numberOfQuestions];
 
-
-        int i;
-        int progNumber = 0;
-        int answerProg = 0;
-        final int numberOfAnswer = 3;
-        final int bound = 5;
-        final int gapForRandom = 5;
-        final int gapForRandomStep = 1;
-        final int boundStep = 9;
-        final int boundForProgressZero = 9;
-
-
-        String nameUser = Cli.getName();
         Random random = new Random();
 
-
-        Scanner in = new Scanner(System.in);
-        System.out.print("What number is missing in the progression?\n");
-        for (i = 0; i < numberOfAnswer; i++) {
+        for (int i = 0; i < numberOfQuestions; i++)  {
+            final int bound = 5;
+            final int gapForRandom = 5;
+            final int gapForRandomStep = 1;
+            final int boundStep = 9;
+            final int boundForProgressZero = 9;
 
             int randomLengthProg = gapForRandom + random.nextInt(bound);
             int[] progress = new int[randomLengthProg];
@@ -46,21 +36,10 @@ public class Progression {
                     replaceElementProgress += progress[k] + " ";
                 }
             }
-            System.out.println("Question: " + replaceElementProgress);
-            answerProg = Integer.parseInt(in.nextLine());
-            progNumber = progress[replacedItemNumber];
-
-            if (progress[replacedItemNumber] == answerProg) {
-                Engine.printTextIfUserCorrect();
-            } else {
-                break;
-            }
+            questions[i] = "Question: " + replaceElementProgress;
+            rightAnswers[i] = progress[replacedItemNumber];
         }
-        if (i == numberOfAnswer) {
-            Engine.printCongratulationsToUser(nameUser);
-        } else {
-            Engine.printFalseAnswer(answerProg, progNumber, nameUser);
-        }
-
+        Engine.gameProcess("What number is missing in the progression?\n",
+                questions, rightAnswers, "number");
     }
 }

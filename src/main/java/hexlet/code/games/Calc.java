@@ -1,60 +1,42 @@
 package hexlet.code.games;
 
-import hexlet.code.Cli;
 import hexlet.code.Engine;
 
-import java.util.Scanner;
 import java.util.Random;
 
 
 
 public class Calc {
     public static void game() {
-
-        int i;
+        final int numberOfQuestions = 3;
         String sign = "+-*";
-        int answerCalc = 0;
-        int resultCalc = 0;
-        final int numberOfAnswer = 3;
-        final int boundForSecondNumber = 100;
-        final int boundForFirstNumber = 76;
-        final int gapForFirstNumber = -25;
 
-        String nameUser = Cli.getName();
+        String[] questions = new String[numberOfQuestions];
+        int[] rightAnswers = new int[numberOfQuestions];
 
-        Scanner in = new Scanner(System.in);
-        System.out.print("What is the result of the expression?\n");
-        for (i = 0; i < numberOfAnswer; i++) {
-            Random random = new Random();
-            int randomNumber = gapForFirstNumber + random.nextInt(boundForFirstNumber);
-            int randomSecondNumber = random.nextInt(boundForSecondNumber);
+        final int valueBound = 100;
+
+        Random random = new Random();
+
+        for (int i = 0; i < numberOfQuestions; i++)  {
+            int randomNumber = random.nextInt(valueBound);
+            int randomSecondNumber = random.nextInt(valueBound);
             String randomSign = Character.toString(sign.charAt(random.nextInt(sign.length())));
 
-            System.out.println("Question: " + randomNumber + " " + randomSign + " " + randomSecondNumber);
+            questions[i] = "Question: " + randomNumber + " " + randomSign + " " + randomSecondNumber;
             switch (randomSign) {
                 case ("+"):
-                    resultCalc = randomNumber + randomSecondNumber;
+                    rightAnswers[i] = randomNumber + randomSecondNumber;
                     break;
                 case ("-"):
-                    resultCalc = randomNumber - randomSecondNumber;
+                    rightAnswers[i] = randomNumber - randomSecondNumber;
                     break;
                 default:
-                    resultCalc = randomNumber * randomSecondNumber;
+                    rightAnswers[i] = randomNumber * randomSecondNumber;
                     break;
             }
-
-            answerCalc = Integer.parseInt(in.nextLine());
-            System.out.println("Your answer: " + answerCalc);
-            if (answerCalc == resultCalc) {
-                Engine.printTextIfUserCorrect();
-            } else {
-                break;
-            }
         }
-        if (i == numberOfAnswer) {
-            Engine.printCongratulationsToUser(nameUser);
-        } else {
-            Engine.printFalseAnswer(answerCalc, resultCalc, nameUser);
-        }
+        Engine.gameProcess("What is the result of the expression?\n",
+                questions, rightAnswers, "number");
     }
 }
