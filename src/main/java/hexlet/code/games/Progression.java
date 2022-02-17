@@ -6,13 +6,12 @@ import hexlet.code.Engine;
 
 public class Progression {
     public static void game() {
-        final int numberOfQuestions = 3;
-        String[] questions = new String[numberOfQuestions];
-        int[] rightAnswers = new int[numberOfQuestions];
+        String[] questions = new String[Engine.NUMBER_OF_QUESTIONS];
+        String[] rightAnswers = new String[Engine.NUMBER_OF_QUESTIONS];
 
         Random random = new Random();
 
-        for (int i = 0; i < numberOfQuestions; i++)  {
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
             final int bound = 5;
             final int gapForRandom = 5;
             final int gapForRandomStep = 1;
@@ -36,10 +35,10 @@ public class Progression {
                     replaceElementProgress += progress[k] + " ";
                 }
             }
-            questions[i] = "Question: " + replaceElementProgress;
-            rightAnswers[i] = progress[replacedItemNumber];
+            questions[i] =  replaceElementProgress;
+            rightAnswers[i] = Integer.toString(progress[replacedItemNumber]);
         }
-        Engine.gameProcess("What number is missing in the progression?\n",
+        Engine.gameProcess("What number is missing in the progression?",
                 questions, rightAnswers, "number");
     }
 }

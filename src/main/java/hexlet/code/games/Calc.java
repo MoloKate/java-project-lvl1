@@ -8,35 +8,33 @@ import java.util.Random;
 
 public class Calc {
     public static void game() {
-        final int numberOfQuestions = 3;
-        String sign = "+-*";
+        String[] sign = new String[]{"+", "-", "*"};
 
-        String[] questions = new String[numberOfQuestions];
-        int[] rightAnswers = new int[numberOfQuestions];
+        String[] questions = new String[Engine.NUMBER_OF_QUESTIONS];
+        String[] rightAnswers = new String[Engine.NUMBER_OF_QUESTIONS];
 
-        final int valueBound = 100;
 
         Random random = new Random();
 
-        for (int i = 0; i < numberOfQuestions; i++)  {
-            int randomNumber = random.nextInt(valueBound);
-            int randomSecondNumber = random.nextInt(valueBound);
-            String randomSign = Character.toString(sign.charAt(random.nextInt(sign.length())));
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
+            int randomNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
+            int randomSecondNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
+            String randomSign = sign[random.nextInt(sign.length)];
 
-            questions[i] = "Question: " + randomNumber + " " + randomSign + " " + randomSecondNumber;
+            questions[i] = randomNumber + " " + randomSign + " " + randomSecondNumber;
             switch (randomSign) {
                 case ("+"):
-                    rightAnswers[i] = randomNumber + randomSecondNumber;
+                    rightAnswers[i] = Integer.toString(randomNumber + randomSecondNumber);
                     break;
                 case ("-"):
-                    rightAnswers[i] = randomNumber - randomSecondNumber;
+                    rightAnswers[i] = Integer.toString(randomNumber - randomSecondNumber);
                     break;
                 default:
-                    rightAnswers[i] = randomNumber * randomSecondNumber;
+                    rightAnswers[i] = Integer.toString(randomNumber * randomSecondNumber);
                     break;
             }
         }
-        Engine.gameProcess("What is the result of the expression?\n",
+        Engine.gameProcess("What is the result of the expression?",
                 questions, rightAnswers, "number");
     }
 }

@@ -6,22 +6,20 @@ import hexlet.code.Engine;
 
 public class Prime {
     public static void game() {
-        final int numberOfQuestions = 3;
-        String[] questions = new String[numberOfQuestions];
-        int[] rightAnswers = new int[numberOfQuestions];
+        String[] questions = new String[Engine.NUMBER_OF_QUESTIONS];
+        String[] rightAnswers = new String[Engine.NUMBER_OF_QUESTIONS];
 
-        final int valueBound = 100;
 
         Random random = new Random();
 
-        for (int i = 0; i < numberOfQuestions; i++) {
-            int value = random.nextInt(valueBound);
+        for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++) {
+            int value = random.nextInt(Utils.QUESTION_VALUE_BOUND);
 
             BigInteger bigInteger = BigInteger.valueOf(value);
-            questions[i] = "Question: " + value;
-            rightAnswers[i] = (bigInteger.isProbablePrime((int) Math.log(value))) ? 1 : 0;
+            questions[i] = Integer.toString(value);
+            rightAnswers[i] = (bigInteger.isProbablePrime((int) Math.log(value))) ? "yes" : "no";
         }
-        Engine.gameProcess("Answer 'yes' if given number is prime. Otherwise answer 'no'.\n",
+        Engine.gameProcess("Answer 'yes' if given number is prime. Otherwise answer 'no'.",
                 questions, rightAnswers, "yesno");
     }
 }
