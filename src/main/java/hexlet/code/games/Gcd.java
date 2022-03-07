@@ -6,10 +6,14 @@ import java.util.Random;
 
 public class Gcd {
     public static int findGcd(int randomNumberOne, int randomNumberTwo) {
-        int gcdNumber = 0;
+
+
         if (randomNumberOne == 0) {
-            gcdNumber = randomNumberTwo;
+            return randomNumberTwo;
+        } else if (randomNumberTwo == 0) {
+            return randomNumberOne;
         }
+        int gcdNumber = 0;
         while (randomNumberTwo != 0) {
             if (randomNumberOne > randomNumberTwo) {
                 randomNumberOne = randomNumberOne - randomNumberTwo;
