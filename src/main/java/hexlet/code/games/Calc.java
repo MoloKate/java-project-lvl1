@@ -1,14 +1,26 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
 
 
 public class Calc {
+    static final String[] SIGNS = new String[]{"+", "-", "*"};
+
+    public static String calculatingResult(String sign, int firstNumber, int secondNumber) {
+        switch (sign) {
+            case ("+"):
+                return Integer.toString(firstNumber + secondNumber);
+            case ("-"):
+                return Integer.toString(firstNumber - secondNumber);
+            default:
+                return Integer.toString(firstNumber * secondNumber);
+        }
+    }
     public static void game() {
-        String[] sign = new String[]{"+", "-", "*"};
 
         String[] questions = new String[Engine.NUMBER_OF_QUESTIONS];
         String[] rightAnswers = new String[Engine.NUMBER_OF_QUESTIONS];
@@ -19,20 +31,10 @@ public class Calc {
         for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
             int randomNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
             int randomSecondNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
-            String randomSign = sign[random.nextInt(sign.length)];
+            String randomSign = SIGNS[random.nextInt(SIGNS.length)];
 
             questions[i] = randomNumber + " " + randomSign + " " + randomSecondNumber;
-            switch (randomSign) {
-                case ("+"):
-                    rightAnswers[i] = Integer.toString(randomNumber + randomSecondNumber);
-                    break;
-                case ("-"):
-                    rightAnswers[i] = Integer.toString(randomNumber - randomSecondNumber);
-                    break;
-                default:
-                    rightAnswers[i] = Integer.toString(randomNumber * randomSecondNumber);
-                    break;
-            }
+            rightAnswers[i] = calculatingResult(randomSign, randomNumber, randomSecondNumber);
         }
         Engine.gameProcess("What is the result of the expression?",
                 questions, rightAnswers, "number");

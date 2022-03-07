@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.math.BigInteger;
 import java.util.Random;
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Prime {
     public static void game() {
@@ -17,7 +18,7 @@ public class Prime {
 
             BigInteger bigInteger = BigInteger.valueOf(value);
             questions[i] = Integer.toString(value);
-            rightAnswers[i] = (bigInteger.isProbablePrime((int) Math.log(value))) ? "yes" : "no";
+            rightAnswers[i] = (bigInteger.isProbablePrime((int) Math.log(value)) && value > 1) ? "yes" : "no";
         }
         Engine.gameProcess("Answer 'yes' if given number is prime. Otherwise answer 'no'.",
                 questions, rightAnswers, "yesno");

@@ -11,7 +11,7 @@ import hexlet.code.games.Prime;
 public class App {
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
+
         System.out.print("Please enter the game number and press Enter.\n"
                 + "1 - Greet\n"
                 + "2 - Even\n"
@@ -20,6 +20,7 @@ public class App {
                 + "5 - Progression\n"
                 + "6 - Prime\n"
                 + "0 - Exit");
+        Scanner in = new Scanner(System.in);
         String gameNumber = in.nextLine();
         System.out.println("Your choice: " + gameNumber + " ");
 
