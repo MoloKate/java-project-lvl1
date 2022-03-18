@@ -26,7 +26,7 @@ public class App {
 
         switch (gameNumber) {
             case "1":
-                Cli.getName();
+                Cli.greeting();
                 break;
             case "2":
                 Even.game();

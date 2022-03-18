@@ -20,9 +20,9 @@ public class Progression {
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
 
-            int randomLengthProg = Utils.rangeRandom(MIN_LENGTH, MIN_LENGTH + MAX_LENGTH, random);
+            int randomLengthProg = Utils.getRandomInRange(MIN_LENGTH, MIN_LENGTH + MAX_LENGTH);
             int[] progress = new int[randomLengthProg];
-            int step = Utils.rangeRandom(MIN_STEP, MIN_STEP + BOUND_STEP, random);
+            int step = Utils.getRandomInRange(MIN_STEP, MIN_STEP + BOUND_STEP);
             progress[0] = random.nextInt(BOUND_FOR_PROGRESS_ZERO);
             for (int j = 1; j < progress.length; j++) {
                 progress[j] = progress[0] + step * j;
@@ -41,6 +41,6 @@ public class Progression {
             rightAnswers[i] = Integer.toString(progress[replacedItemNumber]);
         }
         Engine.gameProcess("What number is missing in the progression?",
-                questions, rightAnswers, "number");
+                questions, rightAnswers);
     }
 }

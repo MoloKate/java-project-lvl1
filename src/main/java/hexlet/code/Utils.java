@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Utils {
     public static final int QUESTION_VALUE_BOUND = 100;
-    public static final int QQ_Q = 100;
+    static final  Random RANDOM = new Random();
 
-    public static int rangeRandom(int start, int end, Random random) {
+    public static int getRandomInRange(int start, int end) {
         int range = end - start;
-        return start + random.nextInt(range);
+        return start + RANDOM.nextInt(range);
+
     }
 }

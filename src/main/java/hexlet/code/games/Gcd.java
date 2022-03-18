@@ -5,22 +5,22 @@ import hexlet.code.Utils;
 import java.util.Random;
 
 public class Gcd {
-    public static int findGcd(int randomNumberOne, int randomNumberTwo) {
+    public static int findGcd(int numberOne, int numberTwo) {
 
 
-        if (randomNumberOne == 0) {
-            return randomNumberTwo;
-        } else if (randomNumberTwo == 0) {
-            return randomNumberOne;
+        if (numberOne == 0) {
+            return numberTwo;
+        } else if (numberTwo == 0) {
+            return numberOne;
         }
         int gcdNumber = 0;
-        while (randomNumberTwo != 0) {
-            if (randomNumberOne > randomNumberTwo) {
-                randomNumberOne = randomNumberOne - randomNumberTwo;
+        while (numberTwo != 0) {
+            if (numberOne > numberTwo) {
+                numberOne = numberOne - numberTwo;
             } else {
-                randomNumberTwo = randomNumberTwo - randomNumberOne;
+                numberTwo = numberTwo - numberOne;
             }
-            gcdNumber = randomNumberOne;
+            gcdNumber = numberOne;
         }
 
         return gcdNumber;
@@ -37,10 +37,10 @@ public class Gcd {
             int randomNumberOne = random.nextInt(Utils.QUESTION_VALUE_BOUND);
             int randomNumberTwo = random.nextInt(Utils.QUESTION_VALUE_BOUND);
 
-            questions[i] = Integer.toString(randomNumberOne) + " " + Integer.toString(randomNumberTwo);
+            questions[i] = randomNumberOne + " " + randomNumberTwo;
             rightAnswers[i] = Integer.toString(findGcd(randomNumberOne, randomNumberTwo));
         }
         Engine.gameProcess("Find the greatest common divisor of given numbers.",
-                questions, rightAnswers, "number");
+                questions, rightAnswers);
     }
 }

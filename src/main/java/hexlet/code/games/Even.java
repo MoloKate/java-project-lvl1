@@ -15,12 +15,12 @@ public class Even {
         Random random = new Random();
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
-            int value = Utils.rangeRandom(0, Engine.NUMBER_OF_QUESTIONS, random);
+            int value = Utils.getRandomInRange(0, Engine.NUMBER_OF_QUESTIONS);
             questions[i] = Integer.toString(value);
             rightAnswers[i] = (value % 2 == 0) ? "yes" : "no";
         }
         Engine.gameProcess("Answer 'yes' if number even otherwise answer 'no'.",
-                questions, rightAnswers, "yesno");
+                questions, rightAnswers);
     }
 
 }

@@ -29,7 +29,12 @@ public class Calc {
         Random random = new Random();
 
         for (int i = 0; i < Engine.NUMBER_OF_QUESTIONS; i++)  {
-            int randomNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
+            int randomNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND); //в классе Utils есть метод для получения
+                                                                            // случайного числа в заданном промежутке.
+                                                                            // А здесь необходимо число от 0 до
+                                                                            // заданного числа, с чем справляется
+                                                                            // существующий метод.не понимаю
+                                                                            // зачем исправлять тут
             int randomSecondNumber = random.nextInt(Utils.QUESTION_VALUE_BOUND);
             String randomSign = SIGNS[random.nextInt(SIGNS.length)];
 
@@ -37,6 +42,6 @@ public class Calc {
             rightAnswers[i] = calculatingResult(randomSign, randomNumber, randomSecondNumber);
         }
         Engine.gameProcess("What is the result of the expression?",
-                questions, rightAnswers, "number");
+                questions, rightAnswers);
     }
 }
