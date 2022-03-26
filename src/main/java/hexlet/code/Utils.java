@@ -11,4 +11,8 @@ public class Utils {
         return start + RANDOM.nextInt(range);
 
     }
+
+    public static int getRandomInRange(int end) {
+        return getRandomInRange(0, end);
+    }
 }
